@@ -8,7 +8,7 @@ Built solo at Cal Hacks 13.0 (Oct 23-25, 2026).
  
 - Demo video: ``
 - Live app: 
-- Figma: ``
+- Figma: `https://www.figma.com/make/wEEJSx70svXkftYjENgcqj/Polaris-Coding-Club-Star-Sky?t=fammuchhtHsVtOV2-20&fullscreen=1`
 ---
  
 ## The problem
