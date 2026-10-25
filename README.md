@@ -42,7 +42,7 @@ I founded one of my school's coding cluba. The hardest part is not the code, it'
 The keeper is a Creao agent, and it does the core work of the app, not decoration. Every post and every opportunity search goes through it.
  
 - **Agent ID:** `d81264f3-e09b-40fa-aca7-595ed57396c7`
-- **Run share link:** ``
+- **Run share link:** `https://agent.creao.ai/share/d69153f80aa6aec9e9df9dd457bf87e0`
 - **Model:** Claude Sonnet 5.5, running inside Creao
 - **Modes:**
   - `match`: clean the post, remove personal details, pick a category, suggest teammates, or return a crisis result.
