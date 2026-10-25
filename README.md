@@ -1,116 +1,164 @@
-Get a SpacetimeDB React app running in under 5 minutes.
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 18+ installed
-- [SpacetimeDB CLI](https://spacetimedb.com/install) installed
-
-Install the [SpacetimeDB CLI](https://spacetimedb.com/install) before continuing.
-
+# Polaris
+ 
+**Every coder needs a North Star.**
+ 
+Polaris is a live star-sky for a coding club. Members post a "signal" (a star) when they need a teammate, a coding-challenge partner, or a study buddy. When someone answers, a line connects the two stars. An AI keeper, built as a Creao agent running on Claude, cleans every post, removes personal details, suggests teammates, finds verified opportunities, and handles unsafe messages with a crisis card.
+ 
+Built solo at Cal Hacks 13.0 (Oct 23-25, 2026).
+ 
+- Demo video: ``
+- Live app: 
+- Figma: ``
 ---
+ 
+## The problem
+ 
+I founded one of my school's coding cluba. The hardest part is not the code, it's the first message: "Does anyone want to work with me?" Members stay quiet because:
+ 
+- They do not want to post a phone number, school detail, or personal message in a group chat.
+- They do not know who in the club has the skills or goals that match theirs.
+- Opportunities (internships, hackathons, fellowships) get lost in chat scroll, or turn out to be expired or fake.
+- Group chats can also receive messages from someone who is struggling, and a club chat is not a safe place for that to go unnoticed.
+  
 
-## Create your project
-
-Run the `spacetime dev` command to create a new project with a SpacetimeDB module and React client.
-
-This will start the local SpacetimeDB server, publish your module, generate TypeScript bindings, and start the React development server.
-
+## What Polaris does
+ 
+| Feature | How it works |
+| --- | --- |
+| **Star sky** | Every open signal is a gold star on a shared live sky. Members appear as small dots. Verified opportunities are teal diamonds. |
+| **Send a signal** | A member writes a post like they would text a friend. The keeper rewrites it, removes personal details (phone numbers, handles, addresses), labels it (teammate, challenge, study, other), and only then is it posted. The raw message is never stored. |
+| **Answer a signal** | One click connects you to the star. The line appears on every member's screen instantly. Answering is atomic: two people cannot answer the same star at once. |
+| **Teammate suggestions** | The keeper reads the post and the members' skills and goals, and suggests up to three people. Members decide whether to reach out. |
+| **Find opportunities** | The keeper searches, checks links and deadlines, and returns suggestions. A member approves each one before it goes on the sky. |
+| **Safety gate** | If a message suggests the writer may be in danger, nothing is posted. The member sees a calm message with 911 and 988. |
+| **Report** | Any member can report a star. It is hidden right away. |
+ 
+## System design
+ 
+![How a signal travels through Polaris](docs/architecture.svg)
+ 
+## How the AI keeper works
+ 
+The keeper is a Creao agent, and it does the core work of the app, not decoration. Every post and every opportunity search goes through it.
+ 
+- **Agent ID:** `d81264f3-e09b-40fa-aca7-595ed57396c7`
+- **Run share link:** ``
+- **Model:** Claude Sonnet 5.5, running inside Creao
+- **Modes:**
+  - `match`: clean the post, remove personal details, pick a category, suggest teammates, or return a crisis result.
+  - `find_opportunities`: search for opportunities that fit a member's interests, verify links and deadlines, and return a list.
+- **Output:** a single JSON result with an `action` field (`post` or `crisis`), the cleaned text, the category, whether personal details were removed, and matches or items.
+### Why a small local server sits between the app and the agent
+ 
+The Creao API key must never reach the browser. `server/keeper.mjs` is a small Node server that:
+ 
+1. Holds the Creao key (loaded from `.env.server`, which is gitignored).
+2. Starts an agent run, polls for the result, and retries with a wait if Creao rate-limits.
+3. Finds the real result block in the agent's text (the agent can print several JSON blocks).
+4. Validates and trims every input, limits body size, and limits simultaneous runs.
+5. Allows only the app's own origin (`localhost:5173` / `localhost:5174`).
+6. Caches opportunity searches for 30 minutes so repeat searches are instant.
+## Why SpacetimeDB
+ 
+The whole experience depends on a shared, live state:
+ 
+- **Subscriptions** make every star, line, and diamond show up on every member's screen immediately, with no polling code.
+- **Reducers** hold the rules on the server side: only members can post, a signal is 1-200 characters, you cannot answer your own signal, and two people cannot answer the same star at once.
+- **One module, one source of truth.** The client never writes to tables directly.
+Tables: `member`, `signal`, `connection`, `opportunity`, `report`.
+Reducers: `joinClub`, `postSignal`, `connectSignal`, `postOpportunity`, `reportSignal`.
+ 
+## Safety and privacy by design
+ 
+- **Crisis gate.** A message that suggests danger is never posted. The member gets a calm message with 911 and 988.
+- **Personal details are stripped before storage.** The database only ever sees the cleaned text.
+- **Humans approve opportunities.** The keeper suggests. A member decides what goes on the sky.
+- **Report button.** Hides a star immediately.
+- **Prototype label.** The app says it is not an emergency service.
+- **Club code is a soft gate.** This repository is public, so the club code in the module can be read by anyone. It keeps casual visitors out of the demo, but it is not real access control. A production version would use SpacetimeAuth or another OIDC provider.
+- **No secrets in the repo.** `.env.server` and `.env.local` are gitignored. `.env.server.example` shows the format.
+## Measuring impact
+ 
+Polaris is built for one real club, and I would measure it with a small number of honest signals:
+ 
+- **Time to first answer:** how long a signal waits before someone answers it.
+- **Share of signals answered:** how many stars become connections.
+- **New members who post:** members who send their first signal in their first week.
+- **Opportunities approved and clicked.**
+- **Safety events:** how often the crisis gate fires, and whether any reports were needed.
+ 
+## Tech stack
+ 
+- **SpacetimeDB 2.x** (TypeScript module, Maincloud database `polaris-calhacks`)
+- **React + Vite + TypeScript** client with generated bindings
+- **Creao** agent running **Claude Sonnet 5.5**
+- **Node** keeper server
+  
+## Run it yourself
+ 
+You need Node 20+, the SpacetimeDB CLI, and a Creao account with an agent.
+ 
 ```bash
-spacetime dev --template react-ts
+git clone ` `
+cd polaris
+npm install
 ```
-
-
-
-## Open your app
-
-Navigate to [http://localhost:5173](http://localhost:5173) to see your app running.
-
-The template includes a basic React app connected to SpacetimeDB.
-
-
-
-## Explore the project structure
-
-Your project contains both server and client code.
-
-Edit `spacetimedb/src/index.ts` to add tables and reducers. Edit `client/src/App.tsx` to build your UI.
-
+ 
+1. **Create the keeper's secrets file.** Copy `.env.server.example` to `.env.server` in the project root and fill in your own values:
 ```
-my-spacetime-app/
-├── spacetimedb/          # Your SpacetimeDB module
-│   └── src/
-│       └── index.ts      # Server-side logic
-├── client/               # React frontend
-│   └── src/
-│       ├── App.tsx
-│       └── module_bindings/  # Auto-generated types
-└── package.json
+   CREAO_API_KEY=your_creao_api_key
+   CREAO_AGENT_ID=your_agent_id
 ```
-
-
-
-## Understand tables and reducers
-
-Open `spacetimedb/src/index.ts` to see the module code. The template includes a `person` table and two reducers: `add` to insert a person, and `sayHello` to greet everyone.
-
-Tables store your data. Reducers are functions that modify data — they're the only way to write to the database.
-
-```typescript
-import { schema, table, t } from 'spacetimedb/server';
-
-const spacetimedb = schema({
-  person: table(
-    { public: true },
-    {
-      name: t.string(),
-    }
-  ),
-});
-export default spacetimedb;
-
-export const add = spacetimedb.reducer(
-  { name: t.string() },
-  (ctx, { name }) => {
-    ctx.db.person.insert({ name });
-  }
-);
-
-export const sayHello = spacetimedb.reducer(ctx => {
-  for (const person of ctx.db.person.iter()) {
-    console.info(`Hello, ${person.name}!`);
-  }
-  console.info('Hello, World!');
-});
-```
-
-
-
-## Test with the CLI
-
-Open a new terminal and navigate to your project directory. Then use the SpacetimeDB CLI to call reducers and query your data directly.
-
+   Never commit this file.
+2. **Publish the database module.** Pick your own database name, change `CLUB_CODE` in `spacetimedb/src/index.ts`, then:
 ```bash
-cd my-spacetime-app
-
-# Call the add reducer to insert a person
-spacetime call add Alice
-
-# Query the person table
-spacetime sql "SELECT * FROM person"
- name
----------
- "Alice"
-
-# Call sayHello to greet everyone
-spacetime call say_hello
-
-# View the module logs
-spacetime logs
-2025-01-13T12:00:00.000000Z  INFO: Hello, Alice!
-2025-01-13T12:00:00.000000Z  INFO: Hello, World!
+   spacetime publish your-database-name
 ```
-
-## Next steps
-
-- See the [Chat App Tutorial](https://spacetimedb.com/docs/tutorials/chat-app) for a complete example
-- Read the [TypeScript SDK Reference](https://spacetimedb.com/docs/clients/typescript) for detailed API docs
+3. **Generate the client bindings** (needed after any schema change):
+```bash
+   spacetime generate --lang typescript --out-dir src/module_bindings --project-path spacetimedb
+```
+4. **Start the keeper server** in its own terminal:
+```bash
+   node --env-file=.env.server server/keeper.mjs
+```
+5. **Start the app** in another terminal:
+```bash
+   npm run dev
+```
+   Open `http://localhost:5173`, join with your club code, and send a signal.
+ 
+To try two members at once, open a second window in a private or incognito browser. Each browser gets its own identity.
+ 
+## Project layout
+ 
+```
+spacetimedb/src/index.ts   SpacetimeDB module: tables and reducers
+src/App.tsx                The star-sky app
+src/module_bindings/       Generated SpacetimeDB client types
+server/keeper.mjs          Local server between the app and the Creao agent
+.env.server.example        Format of the secrets file (the real one is gitignored)
+```
+ 
+## Design (Figma)
+ 
+``
+ 
+## Known limits
+ 
+- The keeper takes about 30 seconds to run a post. The app says so while it works.
+- The keeper server runs on the presenter's laptop for the demo. A real deployment would host it.
+- Opportunity results depend on what the agent can verify at that moment, and a human approves each one.
+- The club code is a soft gate (see above).
+- Polaris is a prototype and **not an emergency service**. If you are in danger, call 911. In the US you can call or text 988.
+  
+## What next
+ 
+- Real sign-in through SpacetimeAuth with club-level roles.
+- Host the keeper so the club can use Polaris without anyone's laptop.
+- Let a club admin see reports and review hidden stars.
+- Per-club skies, so any club can run its own Polaris.
+  
+## Credits
+ 
+Built by Thel (`hannay-sen`) for Cal Hacks 13.0. Agent built on Creao and Claude Sonnet 5.5. Realtime backend by SpacetimeDB.

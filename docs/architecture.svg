@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+  <title>Polaris system design</title>
+  <desc>Animated diagram: a member's post goes to the keeper server, then the Creao agent, back to the app, into SpacetimeDB, and out to every member live.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5f9a"/></marker>
+  </defs>
+  <rect width="1000" height="600" fill="#0b1226"/>
+  <circle cx="339" cy="162" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.8s" begin="0.3s" repeatCount="indefinite"/></circle>
+<circle cx="556" cy="104" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.5s" begin="3.6s" repeatCount="indefinite"/></circle>
+<circle cx="227" cy="46" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="572" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.7s" begin="2.3s" repeatCount="indefinite"/></circle>
+<circle cx="978" cy="236" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.5s" begin="1.6s" repeatCount="indefinite"/></circle>
+<circle cx="234" cy="55" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+<circle cx="128" cy="592" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.5s" begin="2.7s" repeatCount="indefinite"/></circle>
+<circle cx="113" cy="592" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.8s" begin="2.2s" repeatCount="indefinite"/></circle>
+<circle cx="72" cy="585" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.7s" begin="2.0s" repeatCount="indefinite"/></circle>
+<circle cx="552" cy="445" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.1s" begin="3.7s" repeatCount="indefinite"/></circle>
+<circle cx="378" cy="314" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.3s" begin="2.8s" repeatCount="indefinite"/></circle>
+<circle cx="257" cy="91" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.3s" begin="3.5s" repeatCount="indefinite"/></circle>
+<circle cx="754" cy="467" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.6s" begin="0.3s" repeatCount="indefinite"/></circle>
+<circle cx="532" cy="436" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+<circle cx="508" cy="439" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.9s" begin="0.3s" repeatCount="indefinite"/></circle>
+<circle cx="579" cy="329" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.9s" begin="2.4s" repeatCount="indefinite"/></circle>
+<circle cx="601" cy="475" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.4s" begin="3.8s" repeatCount="indefinite"/></circle>
+<circle cx="493" cy="74" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.1s" begin="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="599" cy="464" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.0s" begin="3.5s" repeatCount="indefinite"/></circle>
+<circle cx="363" cy="31" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.7s" begin="2.4s" repeatCount="indefinite"/></circle>
+<circle cx="513" cy="68" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.2s" begin="0.5s" repeatCount="indefinite"/></circle>
+<circle cx="261" cy="415" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.7s" begin="2.0s" repeatCount="indefinite"/></circle>
+<circle cx="178" cy="467" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.4s" begin="3.5s" repeatCount="indefinite"/></circle>
+<circle cx="846" cy="448" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.0s" begin="3.9s" repeatCount="indefinite"/></circle>
+<circle cx="707" cy="397" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.0s" begin="0.7s" repeatCount="indefinite"/></circle>
+<circle cx="245" cy="246" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.2s" begin="2.4s" repeatCount="indefinite"/></circle>
+<circle cx="277" cy="296" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.0s" begin="2.1s" repeatCount="indefinite"/></circle>
+<circle cx="632" cy="587" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.8s" begin="2.8s" repeatCount="indefinite"/></circle>
+<circle cx="535" cy="63" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.6s" begin="3.1s" repeatCount="indefinite"/></circle>
+<circle cx="903" cy="580" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.9s" begin="1.6s" repeatCount="indefinite"/></circle>
+<circle cx="501" cy="418" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.2s" begin="3.9s" repeatCount="indefinite"/></circle>
+<circle cx="459" cy="174" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.7s" begin="0.2s" repeatCount="indefinite"/></circle>
+<circle cx="8" cy="588" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.4s" begin="3.8s" repeatCount="indefinite"/></circle>
+<circle cx="636" cy="34" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.6s" begin="2.5s" repeatCount="indefinite"/></circle>
+<circle cx="160" cy="266" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.6s" begin="1.9s" repeatCount="indefinite"/></circle>
+<circle cx="126" cy="507" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.2s" begin="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="155" cy="112" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.1s" begin="1.9s" repeatCount="indefinite"/></circle>
+<circle cx="716" cy="173" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.2s" begin="3.8s" repeatCount="indefinite"/></circle>
+<circle cx="378" cy="158" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.2s" begin="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="666" cy="101" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.3s" begin="3.6s" repeatCount="indefinite"/></circle>
+<circle cx="372" cy="236" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.7s" begin="2.5s" repeatCount="indefinite"/></circle>
+<circle cx="815" cy="207" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.4s" begin="3.0s" repeatCount="indefinite"/></circle>
+<circle cx="240" cy="212" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.7s" begin="0.1s" repeatCount="indefinite"/></circle>
+<circle cx="36" cy="294" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.4s" begin="2.8s" repeatCount="indefinite"/></circle>
+<circle cx="987" cy="360" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.3s" begin="2.9s" repeatCount="indefinite"/></circle>
+<circle cx="365" cy="381" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.3s" begin="0.9s" repeatCount="indefinite"/></circle>
+<circle cx="209" cy="353" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.2s" begin="3.9s" repeatCount="indefinite"/></circle>
+<circle cx="632" cy="9" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.7s" begin="1.4s" repeatCount="indefinite"/></circle>
+<circle cx="666" cy="94" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.7s" begin="3.1s" repeatCount="indefinite"/></circle>
+<circle cx="776" cy="212" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.6s" begin="1.7s" repeatCount="indefinite"/></circle>
+<circle cx="659" cy="348" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.3s" begin="3.9s" repeatCount="indefinite"/></circle>
+<circle cx="413" cy="482" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="5.1s" begin="0.3s" repeatCount="indefinite"/></circle>
+<circle cx="170" cy="182" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.6s" begin="2.4s" repeatCount="indefinite"/></circle>
+<circle cx="484" cy="157" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.8s" begin="1.4s" repeatCount="indefinite"/></circle>
+<circle cx="569" cy="569" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.6s" begin="3.2s" repeatCount="indefinite"/></circle>
+<circle cx="751" cy="113" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.0s" begin="3.5s" repeatCount="indefinite"/></circle>
+<circle cx="853" cy="224" r="0.8" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="3.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="254" cy="341" r="1.3" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.4s" begin="3.3s" repeatCount="indefinite"/></circle>
+<circle cx="70" cy="370" r="1.6" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.8s" begin="3.3s" repeatCount="indefinite"/></circle>
+<circle cx="537" cy="438" r="1.0" fill="#cfe0ff"><animate attributeName="opacity" values="0.15;0.9;0.15" dur="4.4s" begin="2.1s" repeatCount="indefinite"/></circle>
+
+  <text x="500.0" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#e6edff">Polaris: how a signal travels</text>
+  <text x="500.0" y="62" text-anchor="middle" font-size="13" fill="#9fb2d6">React app + local keeper server + Creao agent on Claude + SpacetimeDB</text>
+
+  <!-- paths -->
+  <path id="p1" d="M 250 215 C 330 200, 350 160, 400 150" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <path id="p2" d="M 620 140 L 740 140" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <path id="p3" d="M 740 175 L 620 175" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <path id="p4" d="M 400 185 C 350 200, 330 245, 250 255" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <path id="p5" d="M 250 285 C 330 330, 350 390, 400 400" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <path id="p6a" d="M 400 440 C 320 440, 300 330, 250 300" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5"/>
+  <path id="p6b" d="M 400 475 C 330 495, 300 495, 250 490" fill="none" stroke="#2c3b6b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+
+  <!-- boxes -->
+  <rect x="40" y="190" width="210" height="120" rx="14" fill="#131d3a" stroke="#ffd479" stroke-width="2"><animate attributeName="stroke-width" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.0000;0.0000;0.1250;0.1450;1" values="2;2;5;5;2;2"/></rect><text x="145.0" y="220" text-anchor="middle" font-size="18" font-weight="700" fill="#ffd479">Member's browser</text><text x="145.0" y="244" text-anchor="middle" font-size="13" fill="#9fb2d6">React star sky</text><text x="145.0" y="264" text-anchor="middle" font-size="13" fill="#9fb2d6">Join, post, answer, report</text><text x="145.0" y="284" text-anchor="middle" font-size="13" fill="#9fb2d6">Subscribed to the sky</text>
+  <rect x="40" y="440" width="210" height="100" rx="14" fill="#131d3a" stroke="#ffd479" stroke-width="2"><animate attributeName="stroke-width" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.7717;0.7917;0.9167;0.9367;1" values="2;2;5;5;2;2"/></rect><text x="145.0" y="470" text-anchor="middle" font-size="18" font-weight="700" fill="#ffd479">Other members</text><text x="145.0" y="494" text-anchor="middle" font-size="13" fill="#9fb2d6">See the same sky</text><text x="145.0" y="514" text-anchor="middle" font-size="13" fill="#9fb2d6">Updates arrive live</text>
+  <rect x="400" y="110" width="220" height="100" rx="14" fill="#131d3a" stroke="#6fd3c8" stroke-width="2"><animate attributeName="stroke-width" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.1050;0.1250;0.2500;0.2700;1" values="2;2;5;5;2;2"/></rect><text x="510.0" y="140" text-anchor="middle" font-size="18" font-weight="700" fill="#6fd3c8">Keeper server</text><text x="510.0" y="164" text-anchor="middle" font-size="13" fill="#9fb2d6">Node, localhost:8787</text><text x="510.0" y="184" text-anchor="middle" font-size="13" fill="#9fb2d6">Holds the Creao API key</text><text x="510.0" y="204" text-anchor="middle" font-size="13" fill="#9fb2d6">Validates, retries, caches</text>
+  <rect x="740" y="100" width="230" height="130" rx="14" fill="#131d3a" stroke="#b9a6ff" stroke-width="2"><animate attributeName="stroke-width" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.2300;0.2500;0.4583;0.4783;1" values="2;2;5;5;2;2"/></rect><text x="855.0" y="130" text-anchor="middle" font-size="18" font-weight="700" fill="#b9a6ff">Creao agent</text><text x="855.0" y="154" text-anchor="middle" font-size="13" fill="#9fb2d6">Club Keeper on Claude Sonnet 5.5</text><text x="855.0" y="174" text-anchor="middle" font-size="13" fill="#9fb2d6">Cleans and strips personal info</text><text x="855.0" y="194" text-anchor="middle" font-size="13" fill="#9fb2d6">Safety gate, matches, opportunities</text>
+  <rect x="400" y="370" width="220" height="130" rx="14" fill="#131d3a" stroke="#ffd479" stroke-width="2"><animate attributeName="stroke-width" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.6467;0.6667;0.7917;0.8117;1" values="2;2;5;5;2;2"/></rect><text x="510.0" y="400" text-anchor="middle" font-size="18" font-weight="700" fill="#ffd479">SpacetimeDB</text><text x="510.0" y="424" text-anchor="middle" font-size="13" fill="#9fb2d6">Maincloud module</text><text x="510.0" y="444" text-anchor="middle" font-size="13" fill="#9fb2d6">Reducers enforce the rules</text><text x="510.0" y="464" text-anchor="middle" font-size="13" fill="#9fb2d6">Tables: member, signal,</text><text x="510.0" y="484" text-anchor="middle" font-size="13" fill="#9fb2d6">connection, opportunity, report</text>
+
+  <!-- labels on paths -->
+  <text x="300" y="170" font-size="12" fill="#9fb2d6">raw post</text>
+  <text x="640" y="130" font-size="12" fill="#9fb2d6">run</text>
+  <text x="630" y="195" font-size="12" fill="#9fb2d6">result</text>
+  <text x="310" y="248" font-size="12" fill="#9fb2d6">clean text</text>
+  <text x="285" y="345" font-size="12" fill="#9fb2d6">postSignal</text>
+  <text x="285" y="515" font-size="12" fill="#9fb2d6">live push</text>
+
+  <!-- moving dots -->
+  
+  <circle r="7" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.0000;0.1250;1"><mpath href="#p1"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.0000;0.0005;0.1250;0.1255;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="13" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.0000;0.1250;1"><mpath href="#p1"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.0000;0.0005;0.1250;0.1255;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="7" fill="#6fd3c8" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.1250;0.2500;1"><mpath href="#p2"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.1250;0.1255;0.2500;0.2505;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="13" fill="#6fd3c8" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.1250;0.2500;1"><mpath href="#p2"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.1250;0.1255;0.2500;0.2505;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="7" fill="#b9a6ff" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.4583;0.5833;1"><mpath href="#p3"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.4583;0.4588;0.5833;0.5838;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="13" fill="#b9a6ff" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.4583;0.5833;1"><mpath href="#p3"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.4583;0.4588;0.5833;0.5838;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="7" fill="#6fd3c8" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.5833;0.6667;1"><mpath href="#p4"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.5833;0.5838;0.6667;0.6672;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="13" fill="#6fd3c8" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.5833;0.6667;1"><mpath href="#p4"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.5833;0.5838;0.6667;0.6672;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="7" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.6667;0.7917;1"><mpath href="#p5"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.6667;0.6672;0.7917;0.7922;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="13" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.6667;0.7917;1"><mpath href="#p5"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.6667;0.6672;0.7917;0.7922;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="6" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.7917;0.9167;1"><mpath href="#p6a"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.7917;0.7922;0.9167;0.9172;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="12" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.7917;0.9167;1"><mpath href="#p6a"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.7917;0.7922;0.9167;0.9172;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+  
+  <circle r="6" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.7917;0.9167;1"><mpath href="#p6b"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.7917;0.7922;0.9167;0.9172;1" values="0;0;1;1;0;0"/>
+  </circle>
+  <circle r="12" fill="#ffd479" opacity="0">
+    <animateMotion dur="12.0s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0;0;1;1" keyTimes="0;0.7917;0.9167;1"><mpath href="#p6b"/></animateMotion>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite"
+      keyTimes="0;0.7917;0.7922;0.9167;0.9172;1" values="0;0;0.25;0.25;0;0"/>
+  </circle>
+
+  <!-- agent thinking pulse -->
+  <circle cx="855" cy="165" r="0" fill="none" stroke="#b9a6ff" stroke-width="2" opacity="0">
+    <animate attributeName="r" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.2500;0.4583;1" values="0;18;34;34"/>
+    <animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.2500;0.4500;0.4583;1" values="0;0.8;0.1;0;0"/>
+  </circle>
+
+  <!-- safety note -->
+  <rect x="740" y="250" width="230" height="64" rx="12" fill="#2a1f3d" stroke="#8f7bd6" stroke-width="1.5"/>
+  <text x="855" y="276" text-anchor="middle" font-size="13" font-weight="700" fill="#cdbcff">Safety gate</text>
+  <text x="855" y="297" text-anchor="middle" font-size="12" fill="#9fb2d6">Unsafe message: nothing is posted</text>
+  <line x1="855" y1="230" x2="855" y2="250" stroke="#8f7bd6" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- human approval note -->
+  <rect x="740" y="340" width="230" height="64" rx="12" fill="#10283a" stroke="#6fd3c8" stroke-width="1.5"/>
+  <text x="855" y="366" text-anchor="middle" font-size="13" font-weight="700" fill="#6fd3c8">Human in the loop</text>
+  <text x="855" y="387" text-anchor="middle" font-size="12" fill="#9fb2d6">Members approve each opportunity</text>
+
+  <!-- captions -->
+  <text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">1  A member writes a raw post, like they would text a friend.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.0000;0.0000;0.1250;0.1450;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">2  The keeper server calls the Creao agent. The API key never reaches the browser.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.1050;0.1250;0.2500;0.2700;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">3  The agent (Claude Sonnet 5.5) removes personal details, checks safety, suggests teammates.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.2300;0.2500;0.4583;0.4783;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">4  The agent returns one clean result: post, or crisis.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.4383;0.4583;0.5833;0.6033;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">5  The app gets the cleaned text. A crisis result posts nothing and shows 911 / 988.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.5633;0.5833;0.6667;0.6867;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">6  The postSignal reducer stores the star. The rules run on the server.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.6467;0.6667;0.7917;0.8117;1" values="0;0;1;1;0;0"/></text>
+<text x="500.0" y="560" text-anchor="middle" font-size="16" fill="#ffd479" opacity="0">7  Subscriptions push the new star to every member's screen. A line appears when someone answers.<animate attributeName="opacity" dur="12.0s" repeatCount="indefinite" keyTimes="0;0.7717;0.7917;0.9167;0.9367;1" values="0;0;1;1;0;0"/></text>
+
+  <text x="500.0" y="588" text-anchor="middle" font-size="11" fill="#6f82b3">Prototype. Not an emergency service.</text>
+</svg>
