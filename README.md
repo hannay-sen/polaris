@@ -154,10 +154,12 @@ server/keeper.mjs          Local server between the app and the Creao agent
   
 ## What next
  
-- Real sign-in through SpacetimeAuth with club-level roles.
-- Host the keeper so the club can use Polaris without anyone's laptop.
-- Let a club admin see reports and review hidden stars.
-- Per-club skies, so any club can run its own Polaris.
+- **Go public as a website.** The database already runs on SpacetimeDB Maincloud. The app would be built and hosted on a static host (Vercel, Netlify, or Cloudflare Pages), and the keeper server would move to a small hosted service (Render, Railway, or Fly.io) with the Creao key stored as a secret.
+- **Limits before going public.** Only joined members could use the keeper, with a per-member and daily cap, so strangers cannot run up the agent.
+- **Real sign-in** through SpacetimeAuth with club-level roles, replacing the soft club code.
+- **Mobile.** The interface is already responsive, so the first step is an installable web app (add to home screen) with a manifest and the Polaris icon. A native app, for example with Capacitor, would come only if clubs adopt it.
+- **Admin view.** Let a club admin see reports and review hidden stars.
+- **Per-club skies,** so any club can run its own Polaris.
   
 ## Credits
  
