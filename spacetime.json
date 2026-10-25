@@ -1,0 +1,8 @@
+{
+  "dev": {
+    "run": "npm run dev"
+  },
+  "database": "polaris-calhacks",
+  "server": "maincloud",
+  "module-path": "./spacetimedb"
+}
