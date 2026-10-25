@@ -99,7 +99,7 @@ Polaris is built for one real club, and I would measure it with a small number o
 You need Node 20+, the SpacetimeDB CLI, and a Creao account with an agent.
  
 ```bash
-git clone ` `
+git clone `https://github.com/hannay-sen/polaris.git`
 cd polaris
 npm install
 ```
