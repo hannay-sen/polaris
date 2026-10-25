@@ -142,7 +142,7 @@ server/keeper.mjs          Local server between the app and the Creao agent
  
 ## Design (Figma)
  
-``
+`https://www.figma.com/make/wEEJSx70svXkftYjENgcqj/Polaris-Coding-Club-Star-Sky?t=fammuchhtHsVtOV2-20&fullscreen=1`
  
 ## Known limits
  
