@@ -1,4 +1,4 @@
-# Polaris
+# Polaris (CALHACKS 13.0)
 
 **Every coder needs a North Star.**
 
@@ -7,6 +7,7 @@ Polaris is a live star-sky for a coding club. Members post a "signal" (a star) w
 Built solo at Cal Hacks 13.0 (Oct 23-25, 2026).
 
 - Demo video: `https://youtu.be/Ip8AVUVEu5I`
+- Devpost: `https://devpost.com/software/polaris-ea6c34?ref_content=user-portfolio&ref_feature=in_progress`
 - Live app: runs locally (see "Run it yourself" below)
 - Figma: `https://www.figma.com/make/wEEJSx70svXkftYjENgcqj/Polaris-Coding-Club-Star-Sky?fullscreen=1&t=ZfHzRfahpw8pqSMc-1&code-node-id=0-6`
 
