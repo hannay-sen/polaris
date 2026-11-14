@@ -8,3 +8,9 @@ spacetime.local.json
 .env
 .env.local
 .env.server
+
+# AI assistant configs
+.cursor/
+.windsurfrules
+CLAUDE.md
+AGENTS.md
